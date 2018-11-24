@@ -49,7 +49,6 @@ STRIP		?= strip
 # from loading the libauthbind.dylib library if that library is only built
 # for e.g. the x86_64 arch.
 ARCH=-arch x86_64
-OSX_CFLAGS=-flat_namespace
 OSX_LDFLAGS=$(ARCH) -dynamiclib -dynamic -flat_namespace
 
 OPTIMISE=-O2
@@ -57,7 +56,7 @@ LDFLAGS=$(OSX_LDFLAGS)
 LIBS=-ldl
 CFLAGS=$(ARCH) -g $(OPTIMISE) -D_REENTRANT \
  -Wall -Wwrite-strings -Wpointer-arith -Wimplicit -Wnested-externs \
- -Wmissing-prototypes -Wstrict-prototypes $(OSX_CFLAGS)
+ -Wmissing-prototypes -Wstrict-prototypes
 
 CPPFLAGS=-DMAJOR_VER='"$(MAJOR)"' \
  -DMINOR_VER='"$(MINOR)"' \
